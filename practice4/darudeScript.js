@@ -14,12 +14,13 @@ $(document).ready(function getRecords() {
         },
 
         success: function (response) {
-            $.each(response.results, function (i, results) {
-                $("#cardRow").append("<div class='card m-2' style='width: 200px; height: 300px'><img src = ' " + response.results[i].artworkUrl100 + "' class='card - image - top' alt = 'darude album cover' /><div class='card - body'><h5 class='card - title mt-3'>" + response.results[i].collectionName + "</h5></div></div >");
-                if (i === 50) {
-                    return false;
-                }
+            $(response.results).each( function () {
+                createCard(this);
             });
         }
     });
 })
+
+function createCard(recordDetail) {
+    $("#cardRow").append("<div class='card m-2'><img src = ' " + recordDetail.artworkUrl100 + "' class='card - image - top' alt = '" + recordDetail.collectionName + "' /><div class='card - body'><h5 class='card - title mt-3'>" + recordDetail.collectionName + "</h5></div></div >");
+}

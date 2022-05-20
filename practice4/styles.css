@@ -1,0 +1,15 @@
+﻿.container-lg
+{
+    max-width: 1000px;
+}
+
+.card
+{
+    width: 200px;
+    height: 300px;
+}
+
+.card.body {
+    width: 200px;
+    height: 100px;
+}
